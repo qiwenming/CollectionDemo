@@ -10,13 +10,14 @@ import java.util.Collection;
 public class MainJava {
 
     public static void main(String[] args){
-        System.out.println("--------------");
-        String string = null;
 
-        CollectionJava collectionJava  = new CollectionJava();
+//        CollectionJava collectionJava  = new CollectionJava();
 //        collectionJava.testSet();
 //        collectionJava.testTreeSet();
-        collectionJava.testTreeSetComparable();
+//        collectionJava.testTreeSetComparable();
+
+        MapJava mapJava = new MapJava();
+        mapJava.testGetValue();
     }
 
 
