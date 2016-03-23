@@ -1,5 +1,7 @@
 package com.qwm.interview;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -7,6 +9,9 @@ import java.util.*;
  */
 public class MapJava {
 
+    /**
+     * 四种遍历值
+     */
     public void testGetValue(){
         Map<Integer ,String> map = new HashMap<Integer ,String>();
         for (int i = 0; i < 5; i++) {
@@ -41,5 +46,44 @@ public class MapJava {
         }
     }
 
+    public void testProperties(){
+        Properties pps = System.getProperties();
+//        pps.list(System.out);
+        System.out.println(pps.getProperty("java.runtime.version"));
+        try {
+            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/systempro.properties");
+            pps.store(fileWriter,pps.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testProperties2(){
+        Properties pps = new Properties();
+        pps.setProperty("xm","明夜");
+        pps.setProperty("xm2","明夜");
+        pps.setProperty("xm3","明夜");
+        pps.setProperty("xm4","明夜");
+        try {
+            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/xm.properties");
+            pps.store(fileWriter,pps.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    public void testgetProperties2(){
+//        Properties pps = new Properties();
+//        pps.setProperty("xm","明夜");
+//        pps.setProperty("xm2","明夜");
+//        pps.setProperty("xm3","明夜");
+//        pps.setProperty("xm4","明夜");
+//        try {
+//            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/xm.properties");
+//            pps.store(fileWriter,pps.toString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }

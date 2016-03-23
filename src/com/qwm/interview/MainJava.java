@@ -17,7 +17,9 @@ public class MainJava {
 //        collectionJava.testTreeSetComparable();
 
         MapJava mapJava = new MapJava();
-        mapJava.testGetValue();
+//        mapJava.testGetValue();
+//        mapJava.testProperties();
+        mapJava.testProperties2();
     }
 
 
