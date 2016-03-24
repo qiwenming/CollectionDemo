@@ -55,4 +55,29 @@ IO
      --Reader
      --Writer
 
-    input
+
+网络编程
+ udp  http://blog.csdn.net/qiwenmingshiwo/article/details/46196223
+ tcp  http://blog.csdn.net/qiwenmingshiwo/article/details/46203307
+ http://blog.csdn.net/qiwenmingshiwo/article/details/46279577
+ http://blog.csdn.net/qiwenmingshiwo/article/details/46284681
+
+ socket
+ udp
+   DatagramSocket  udp的发送到和接收端  DatagramScoket
+   DatagramPacket  数据包 DatagramPacket
+
+     DatagramSocket
+       --send(dp)
+       --receive(dp)
+ tcp
+   Socket
+   ServerSocket
+   DataOutputStream
+   DataInputStream
+
+    Socket
+      getInputStream
+      getOutputStream
+    ServerSocket
+      accept
