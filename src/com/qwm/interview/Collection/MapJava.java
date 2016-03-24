@@ -1,4 +1,4 @@
-package com.qwm.interview;
+package com.qwm.interview.Collection;
 
 import java.io.FileWriter;
 import java.io.IOException;

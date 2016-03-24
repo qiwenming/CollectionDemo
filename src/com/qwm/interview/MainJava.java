@@ -1,7 +1,10 @@
 package com.qwm.interview;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import com.qwm.interview.Collection.CollectionsTool;
+import com.qwm.interview.Collection.MapJava;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by qiwenming on 2016/3/22.
@@ -16,12 +19,14 @@ public class MainJava {
 //        collectionJava.testTreeSet();
 //        collectionJava.testTreeSetComparable();
 
-        MapJava mapJava = new MapJava();
-//        mapJava.testGetValue();
-//        mapJava.testProperties();
-        mapJava.testProperties2();
-    }
+//        MapJava mapJava = new MapJava();
+////        mapJava.testGetValue();
+////        mapJava.testProperties();
+//        mapJava.testProperties2();
 
+        CollectionsTool tool = new CollectionsTool();
+        tool.testCollections();
+    }
 
 
 }

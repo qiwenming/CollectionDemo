@@ -1,4 +1,4 @@
-package com.qwm.interview;
+package com.qwm.interview.Collection;
 
 import java.util.*;
 
@@ -14,6 +14,8 @@ public class CollectionJava {
         arrayList.remove(null);
         linkedList.contains(null);
         linkedList.remove(null);
+        arrayList.iterator();
+
     }
 
     public void testSet(){
