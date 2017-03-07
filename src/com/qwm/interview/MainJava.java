@@ -1,7 +1,10 @@
 package com.qwm.interview;
 
-import com.qwm.interview.threaddemo.FutureTest;
-import com.qwm.interview.threaddemo.ThreadDemo;
+//import com.qwm.interview.threaddemo.FutureTest;
+//import com.qwm.interview.threaddemo.ThreadDemo;
+
+import com.qwm.interview.Collection.CollectionJava;
+import com.qwm.interview.Collection.MapJava;
 
 /**
  * Created by qiwenming on 2016/3/22.
@@ -11,13 +14,15 @@ public class MainJava {
 
     public static void main(String[] args){
 
-//        CollectionJava collectionJava  = new CollectionJava();
+        CollectionJava collectionJava  = new CollectionJava();
+//        collectionJava.test();
 //        collectionJava.testSet();
 //        collectionJava.testTreeSet();
 //        collectionJava.testTreeSetComparable();
 
-//        MapJava mapJava = new MapJava();
-////        mapJava.testGetValue();
+        MapJava mapJava = new MapJava();
+        mapJava.testLinkedHashMap();
+        mapJava.testGetValue();
 ////        mapJava.testProperties();
 //        mapJava.testProperties2();
 
@@ -62,7 +67,7 @@ public class MainJava {
 ////        futureTest.test2();
 //        futureTest.test3();
 
-        ThreadDemo threadDemo = new ThreadDemo();
-        threadDemo.test();
+//        ThreadDemo threadDemo = new ThreadDemo();
+//        threadDemo.test();
     }
 }

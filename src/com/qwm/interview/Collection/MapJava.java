@@ -9,6 +9,27 @@ import java.util.*;
  */
 public class MapJava {
 
+    public void testLinkedHashMap(){
+        HashMap<String,String> hashMap = new HashMap<>();
+        HashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+        for (int i = 0; i < 10; i++) {
+            hashMap.put(i+"","hashMap_"+i);
+            linkedHashMap.put(i+"","linkedHashMap_"+i);
+        }
+        System.out.println("-------hashMap-----------");
+        printMap(hashMap);
+        System.out.println("-------linkedHashMap-----------");
+        printMap(linkedHashMap);
+    }
+
+    public void printMap(Map map){
+        Set<Map.Entry<Object,Object>> entrySet= map.entrySet();
+        for (Map.Entry<Object,Object> entry: entrySet) {
+            System.out.println("key:"+entry.getKey()+"\tvalue:"+entry.getValue());
+        }
+    }
+
+    //=====================================四种遍历值===========================================
     /**
      * 四种遍历值
      */
@@ -45,6 +66,8 @@ public class MapJava {
             System.out.println("key:"+entry.getKey()+"\tvalue:"+entry.getValue());
         }
     }
+
+    //=====================================Properties===========================================
 
     public void testProperties(){
         Properties pps = System.getProperties();

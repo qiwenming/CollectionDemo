@@ -8,14 +8,18 @@ import java.util.*;
  */
 public class CollectionJava {
     ArrayList arrayList = new ArrayList<>();
-    LinkedList linkedList = new LinkedList();
+    LinkedList linkedList = new LinkedList<>();
+    Vector vector = new Vector();
     public void test(){
-        arrayList.contains(null);
-        arrayList.remove(null);
-        linkedList.contains(null);
-        linkedList.remove(null);
-        arrayList.iterator();
-
+//        arrayList.contains(null);
+//        arrayList.remove(null);
+//        linkedList.contains(null);
+//        linkedList.remove(null);
+//        arrayList.iterator();
+//        vector.contains(null);
+//        vector.remove(null);
+//
+//        linkedList.peekFirst();
     }
 
     public void testSet(){
@@ -39,25 +43,47 @@ public class CollectionJava {
         }
     }
 
-
-
     //==========================================================================================
     public void testTreeSet(){
-        System.out.println("------testTreeSet--------");
-//        TreeSet<Integer> treeSet = new TreeSet<Integer>(new XmComparator());
+//        testDefualtTreeSet();
+        testComparator();
+    }
+
+    /**
+     * 默认的TreeSet 自然顺序
+     */
+    public void testDefualtTreeSet(){
+        System.out.println("------testDefualtTreeSet--------");
+        TreeSet<String> testTreeSet = new TreeSet<>();
+        testTreeSet.add("testDefualtTreeSet_9");
+        testTreeSet.add("testDefualtTreeSet_7");
+        testTreeSet.add("testDefualtTreeSet_8");
+        testTreeSet.add("testDefualtTreeSet_1");
+        testTreeSet.add("testDefualtTreeSet_3");
+        printCollection(testTreeSet);
+    }
+
+    /**
+     * 比较器的使用
+     */
+    public void testComparator(){
         TreeSet<Integer> treeSet = new TreeSet<Integer>(new XmComparator());
         treeSet.add(1);
         treeSet.add(3);
         treeSet.add(9);
         treeSet.add(2);
+        printCollection(treeSet);
 
-        Iterator<Integer> iterator = treeSet.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+        TreeSet<String> set2 = new TreeSet<>();
+        set2.add("asd");
+        set2.add("sadg");
+        set2.add("aaaa");
+        printCollection(set2);
     }
 
-
+    /**
+     * 元素比较
+     */
     public void testTreeSetComparable(){
         System.out.println("------testTreeSetComparable--------");
 
@@ -71,6 +97,17 @@ public class CollectionJava {
         Iterator<XmComparableBean> iterator = treeSetCom.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next().number);
+        }
+    }
+
+    /**
+     * 比较器，字符串的比较器，这个其实没必要，因为String实现了Comparable接口
+     */
+    class XmStringComparator implements Comparator<String>{
+
+        @Override
+        public int compare(String param1, String param2) {
+            return param1.compareTo(param2);
         }
     }
 
@@ -97,7 +134,41 @@ public class CollectionJava {
         public int compareTo(XmComparableBean param) {
             return this.number-param.number;
         }
+
+        @Override
+        public String toString() {
+            return number+"";
+        }
     }
+
+    /**
+     * 实现 Comparable借口  compareTo
+     */
+    class XmComparableBean2 implements Comparable<XmComparableBean2>{
+        private Double doubleNum;
+
+        public XmComparableBean2(Double doubleNum) {
+            this.doubleNum = doubleNum;
+        }
+
+        @Override
+        public int compareTo(XmComparableBean2 o) {
+            return 0;
+        }
+
+        @Override
+        public String toString() {
+            return ""+doubleNum;
+        }
+    }
+
+    public void printCollection(Collection c){
+        Iterator iterator = c.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+
 //==========================================================================================
 
 }
