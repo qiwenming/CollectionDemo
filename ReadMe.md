@@ -9,7 +9,7 @@
 	 判断是否存在和删除依赖的是equals方法
 	 
 	 
-  ####2.2 Set --->无序、无索引、元素不可重复   
+####2.2 Set --->无序、无索引、元素不可重复   
      1.HashSet: 底层是Hash表，线程不同步，无序、高效 ---->内部使用的是一个HashMap集合key值当做我们存储的对象，value值是一个固定的Object对象
 	    保证唯一性：元素hashCode和equals方法。hashCode方法相同，判断equals方法
 	  ---LinkedHashSet: 有序，是HashSet的子类--->
@@ -20,12 +20,12 @@
 
 ###3.Map
 
-  ####3.1 HashMap: 底层数据结构是Hash表，允许存入null键和null值，不同步，高效
+####3.1 HashMap: 底层数据结构是Hash表，允许存入null键和null值，不同步，高效
       ---LinkedHashMap: 底层数据结构是Hash表和双向链表           
 		 理解LinkedHashMap  http://www.cnblogs.com/children/archive/2012/10/02/2710624.html
 		 JAVA实现链表面试题  http://blog.csdn.net/u010442302/article/details/51864187
 		 
 		 
-  ####3.2 HashTable: 底层数据结构是Hash表，不允许存入null键和null值，同步
+####3.2 HashTable: 底层数据结构是Hash表，不允许存入null键和null值，同步
   
-  ####3.3 TreeMap: 底层数据结构是二叉树，不同步，可排序
+####3.3 TreeMap: 底层数据结构是二叉树，不同步，可排序
