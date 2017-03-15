@@ -24,6 +24,18 @@ public class MapJava {
         printMap(linkedHashMap);
     }
 
+    public void testTreeMap(){
+        Map<String,String> map = new TreeMap<>();
+        map.put("01","56");
+        map.put("08","8");
+        map.put("07","65");
+        map.put("12","76");
+        map.put("12","999");
+        map.put("08","986");
+        printMap(map);
+    }
+
+
     public void printMap(Map map){
         Set<Map.Entry<Object,Object>> entrySet= map.entrySet();
         for (Map.Entry<Object,Object> entry: entrySet) {

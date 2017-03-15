@@ -25,6 +25,7 @@ public class MainJava {
 //        mapJava.testGetValue();
 //        mapJava.testProperties();
 //        mapJava.testProperties2();
+        mapJava.testTreeMap();
 
 //        CollectionsTool tool = new CollectionsTool();
 //        tool.testCollections();
