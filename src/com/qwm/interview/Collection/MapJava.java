@@ -1,7 +1,9 @@
 package com.qwm.interview.Collection;
 
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.*;
 
 /**
@@ -71,42 +73,28 @@ public class MapJava {
 
     public void testProperties(){
         Properties pps = System.getProperties();
-//        pps.list(System.out);
-        System.out.println(pps.getProperty("java.runtime.version"));
         try {
-            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/systempro.properties");
+            FileWriter fileWriter = new FileWriter("./myfile/systempro.properties");
+            OutputStream os = new FileOutputStream("./myfile/systemproperties.xml");
             pps.store(fileWriter,pps.toString());
+            pps.storeToXML(os,pps.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void testProperties2(){
+    public void testProperties2() {
         Properties pps = new Properties();
-        pps.setProperty("xm","明夜");
-        pps.setProperty("xm2","明夜");
-        pps.setProperty("xm3","明夜");
-        pps.setProperty("xm4","明夜");
+        pps.setProperty("xm", "明夜");
+        pps.setProperty("xm2", "明夜");
+        pps.setProperty("xm3", "明夜");
+        pps.setProperty("xm4", "明夜");
         try {
-            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/xm.properties");
-            pps.store(fileWriter,pps.toString());
+            FileWriter fileWriter = new FileWriter("./myfile/xm.properties");
+            pps.store(fileWriter, pps.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-//    public void testgetProperties2(){
-//        Properties pps = new Properties();
-//        pps.setProperty("xm","明夜");
-//        pps.setProperty("xm2","明夜");
-//        pps.setProperty("xm3","明夜");
-//        pps.setProperty("xm4","明夜");
-//        try {
-//            FileWriter fileWriter = new FileWriter("D:\\IdeaProjects\\CollectionDemo/xm.properties");
-//            pps.store(fileWriter,pps.toString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 }

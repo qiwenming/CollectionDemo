@@ -21,9 +21,9 @@ public class MainJava {
 //        collectionJava.testTreeSetComparable();
 
         MapJava mapJava = new MapJava();
-        mapJava.testLinkedHashMap();
-        mapJava.testGetValue();
-////        mapJava.testProperties();
+//        mapJava.testLinkedHashMap();
+//        mapJava.testGetValue();
+//        mapJava.testProperties();
 //        mapJava.testProperties2();
 
 //        CollectionsTool tool = new CollectionsTool();
