@@ -71,6 +71,43 @@ Properties继承自HashTable，可保存在流中或从流中加载，是集合�
 ![结构](/img/iostruct.png)  
 
 ### 2.基本的流 
+**字节流：InputStream,OutputStream**      
+**字符流：Reader,Writer**
+#### 2.1 字节流
+```
+InputStream
+   ---ByteArrayInputStream  含缓冲数组，读取内存中字节数组的数组，未涉及到流
+   ---FileInputStream   从文件中获取输入字节。 如：媒体文件
+      ---BufferedInputStream 带有缓冲区的字节输入流
+      ---DataInputStream  数据输入流，读取基本数据类型的数据
+   ---ObjectInputStream  用于读取对象的输入流
+   ---PipedInputStream   管道流，线程间通信，与PipedOutputStream配合使用
+   ---SequenceInputStream 合并流，将多个输入流逻辑串联  
+
+OutputStream
+   ---ByteArrayOutputStream
+   ---FileOutputStream
+      ---BufferedOutputStream
+      ---DataOutputSream
+      ---PrintStream 打印流
+   ---ObjectOutputStream
+   ---PipedOutputStream
+```
+
+
+#### 2.2 字符流
+```
+Reader
+   ---BufferedReader
+      ---LineNumberReader 带行号的字符缓冲输入流
+   ---InputStreamReader
+      ---FileReader 写入文件的便捷类
+Writer
+   ---BufferedWriter
+   ---OutputStreamWriter
+      ---FileWriter 
+```
+
 
 ### 3.网络编程  
 
