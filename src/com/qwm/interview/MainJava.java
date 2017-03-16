@@ -20,12 +20,12 @@ public class MainJava {
 //        collectionJava.testTreeSet();
 //        collectionJava.testTreeSetComparable();
 
-        MapJava mapJava = new MapJava();
+//        MapJava mapJava = new MapJava();
 //        mapJava.testLinkedHashMap();
 //        mapJava.testGetValue();
 //        mapJava.testProperties();
 //        mapJava.testProperties2();
-        mapJava.testTreeMap();
+//        mapJava.testTreeMap();
 
 //        CollectionsTool tool = new CollectionsTool();
 //        tool.testCollections();

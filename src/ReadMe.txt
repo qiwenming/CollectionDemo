@@ -38,6 +38,7 @@ IO
      --InputStream
        --ByteArrayInputStream
        --FileInputStream
+       --FilterInputStream
           --BufferedInputStream
           --DataInputStream
        --ObjectInputStream
@@ -46,6 +47,7 @@ IO
      --OutputStream
        --ByteArrayOutputStream
        --FileOutputStream
+       --FilterOutputStream
         --BufferedOutputStream
         --DataOutputStream
         --PrintStream

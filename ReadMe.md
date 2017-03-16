@@ -78,6 +78,7 @@ Properties继承自HashTable，可保存在流中或从流中加载，是集合�
 InputStream
    ---ByteArrayInputStream  含缓冲数组，读取内存中字节数组的数组，未涉及到流
    ---FileInputStream   从文件中获取输入字节。 如：媒体文件
+   ---FilterInputStream
       ---BufferedInputStream 带有缓冲区的字节输入流
       ---DataInputStream  数据输入流，读取基本数据类型的数据
    ---ObjectInputStream  用于读取对象的输入流
@@ -87,6 +88,7 @@ InputStream
 OutputStream
    ---ByteArrayOutputStream
    ---FileOutputStream
+   ---FilterOutputStream
       ---BufferedOutputStream
       ---DataOutputSream
       ---PrintStream 打印流
