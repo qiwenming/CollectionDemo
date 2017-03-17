@@ -5,6 +5,8 @@ package com.qwm.interview;
 
 import com.qwm.interview.Collection.CollectionJava;
 import com.qwm.interview.Collection.MapJava;
+import com.qwm.interview.net.tcp.SocketClient;
+import com.qwm.interview.net.tcp.SocketServer;
 
 /**
  * Created by qiwenming on 2016/3/22.
@@ -52,15 +54,15 @@ public class MainJava {
 //        UdpSend udpSend = new UdpSend();
 //        udpSend.testSend("我是你大爷");
 
-//        //TCP测试
-//        new Thread(){
-//            @Override
-//            public void run() {
-//                new SocketServer().testReceive();
-//            }
-//        }.start();
-//
-//        new SocketClient().testSend("我是杞小明，现在是tcp测试");
+        //TCP测试
+        new Thread(){
+            @Override
+            public void run() {
+                new SocketServer().testReceive();
+            }
+        }.start();
+
+        new SocketClient().testSend("我是杞小明，现在是tcp测试");
 
 ////        多线程测试
 //        FutureTest futureTest = new FutureTest();

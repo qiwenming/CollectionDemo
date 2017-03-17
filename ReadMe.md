@@ -139,8 +139,28 @@ OSI参考模型              TCP/IP参考模型
 | 必须建立连接，效率会降低| 不需要建立连接，速度快|
 
 
-#### 3.1 Socket 
+#### 3.1 Socket
 
-#### 3.2 UDP   
+Socket就是为网络服务提供的一种机制
+通信两端都是Socket
+网络通信其实就是Socket之间的通信
+数据在两个Socket间通过IO传输
+
+#### 3.2 UDP
+
+**DatagramSocket DatagramPacket**
+
+
 
 #### 3.3 UDP
+
+
+## 三、多线程
+
+### 1.线程和进程
+
+### 2.Thread
+
+### 3.Runable
+
+### 4.Callable

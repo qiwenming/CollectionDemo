@@ -19,7 +19,7 @@ public class SocketServer {
      */
     public void testReceive(){
         try {
-            ServerSocket ss = new ServerSocket(8888);
+            ServerSocket ss = new ServerSocket(9633);
             Socket s = ss.accept();
             DataInputStream dis = new DataInputStream(s.getInputStream());
             int datalength = dis.readInt();//数据的长度
