@@ -1,4 +1,7 @@
-package com.qwm.interview.threaddemo;
+
+package com.qwm.interview.ThreadDemo;
+
+import jdk.nashorn.internal.codegen.CompilerConstants;
 
 import java.util.Random;
 import java.util.concurrent.*;
@@ -82,4 +85,45 @@ public class FutureTest {
         }
     }
 
+
+    //=====================================================================================================
+    //=====================================================================================================
+    //=====================================================================================================
+
+
+    public static  void main(String[] args){
+        FutureTest test = new FutureTest();
+        test.testFutrueTask01();
+    }
+
+    //==========================使用普通的 Thread方法=================================
+    public void testFutrueTask01(){
+
+        Callable<Integer> myCallable = new MyCallable();
+        FutureTask<Integer> ft = new FutureTask<Integer>(myCallable);
+        Thread thread = new Thread(ft);
+
+        thread.start();
+        try {
+            int sum = ft.get();
+            System.out.println("获取值：sum="+sum);
+        } catch (InterruptedException e) {
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    class MyCallable implements Callable<Integer>{
+        @Override
+        public Integer call() throws Exception {
+            int sum = 0;
+            for (int i = 1; i <100 ; i++) {
+                System.out.println(Thread.currentThread()+"--->"+i);
+                sum += i;
+            }
+            return sum;
+        }
+    }
+
+    //==========================使用普通的 Thread方法=================================
 }

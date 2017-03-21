@@ -160,7 +160,80 @@ Socket就是为网络服务提供的一种机制
 ### 1.线程和进程
 
 ### 2.Thread
+```
+1.定义一个类继承Thread
+2.覆盖Thread中的run方法
+3.直接创建Thread子类的对象
+4.调用start方法
+```
+
+Thread是Runnable的一个实现类，
+**run()** 中的 **target** 就是传递进来的Runnable对象（通过Runnable方式来启动线程的方式）
+```
+public class Thread implements Runnable{
+ ....
+    @Override
+    public void run() {
+        if (target != null) {
+            target.run();
+        }
+    }
+ ....
+}
+```
 
 ### 3.Runable
+```
+1.定义一个类实现Runnable接口
+2.覆盖Runnable接口的run方法
+3.通过Thread创建线程对象
+4.并将Runnable接口的子类对象作为Thread类的构造函数参数进行传递
+  作为参数传递的原因是让线程对象明确要运行的run方法所属的对象。
+```
+Runnable接口，只定义了一个 run()
+```
+public interface Runnable {
+    public abstract void run();
+}
+```
+如果我们两种方式都使用了，那么我们执行的是 继承的run()。其实Runnable方式我们执行到它run()方法，是在Thread的run()中调用了 Runnable示例target的run()。
 
 ### 4.Callable
+**UML**
+![结构](/img/FutureTask_uml.png)
+#### 4.1 Callable
+```
+public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+#### 4.2 Runnable
+```
+public interface Runnable {
+    public abstract void run();
+}
+```
+#### 4.3 Future
+```
+public interface Future<V> {
+    boolean cancel(boolean mayInterruptIfRunning);
+    boolean isCancelled();
+    boolean isDone();
+    V get() throws InterruptedException, ExecutionException;
+    V get(long timeout, TimeUnit unit)
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+```
+#### 4.4 RunnableFuture
+```
+public interface RunnableFuture<V> extends Runnable, Future<V> {
+    void run();
+}
+```
+
+#### 4.5 FutureTask
+```
+public class FutureTask<V> implements RunnableFuture<V> {
+  ...
+}
+```

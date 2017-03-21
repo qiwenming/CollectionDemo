@@ -55,14 +55,14 @@ public class MainJava {
 //        udpSend.testSend("我是你大爷");
 
         //TCP测试
-        new Thread(){
-            @Override
-            public void run() {
-                new SocketServer().testReceive();
-            }
-        }.start();
-
-        new SocketClient().testSend("我是杞小明，现在是tcp测试");
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                new SocketServer().testReceive();
+//            }
+//        }.start();
+//
+//        new SocketClient().testSend("我是杞小明，现在是tcp测试");
 
 ////        多线程测试
 //        FutureTest futureTest = new FutureTest();
