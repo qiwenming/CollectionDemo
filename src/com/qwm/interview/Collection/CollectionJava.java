@@ -7,6 +7,21 @@ import java.util.*;
  * 集合练习
  */
 public class CollectionJava {
+
+    public static void main(String[] args){
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        String[] strings = list.toArray(new String[]{});
+        System.out.println(strings.length);
+//        list.toArray(args);
+//        Collections.a
+
+//        String[] strings = (String[]) list.toArray();
+    }
+
+
     ArrayList arrayList = new ArrayList<>();
     LinkedList linkedList = new LinkedList<>();
     Vector vector = new Vector();

@@ -199,21 +199,24 @@ public interface Runnable {
 如果我们两种方式都使用了，那么我们执行的是 继承的run()。其实Runnable方式我们执行到它run()方法，是在Thread的run()中调用了 Runnable示例target的run()。
 
 ### 4.Callable
-**UML**
+#### 4.1 UML图
 ![结构](/img/FutureTask_uml.png)
-#### 4.1 Callable
+
+#### 4.2 Callable
 ```
 public interface Callable<V> {
     V call() throws Exception;
 }
 ```
-#### 4.2 Runnable
+
+#### 4.3 Runnable
 ```
 public interface Runnable {
     public abstract void run();
 }
 ```
-#### 4.3 Future
+
+#### 4.4 Future
 ```
 public interface Future<V> {
     boolean cancel(boolean mayInterruptIfRunning);
@@ -224,16 +227,67 @@ public interface Future<V> {
         throws InterruptedException, ExecutionException, TimeoutException;
 }
 ```
-#### 4.4 RunnableFuture
+
+#### 4.5 RunnableFuture
 ```
 public interface RunnableFuture<V> extends Runnable, Future<V> {
     void run();
 }
 ```
 
-#### 4.5 FutureTask
+#### 4.6 FutureTask
 ```
 public class FutureTask<V> implements RunnableFuture<V> {
   ...
 }
 ```
+
+### 5. 线程池
+[深入分析java线程池的实现原理](http://www.jianshu.com/p/87bff5cc8d8c)
+#### 5.1 ThreadPoolExecutor
+```
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue) {
+                              ...
+    }
+
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue,
+                          ThreadFactory threadFactory) {
+                              ...
+  }
+
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue,
+                          RejectedExecutionHandler handler) {
+                          ...
+}
+
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue,
+                          ThreadFactory threadFactory,
+                          RejectedExecutionHandler handler) {
+                         ...
+}
+
+```
+
+|参数| 说明 |
+|----|----|
+|corePoolSize| 核心线程数 |
+|maximumPoolSize| 最大线程数|
+|keepAliveTime|存活时间 |
+|unit| 时间单位|
+|...|...|

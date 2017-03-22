@@ -125,5 +125,12 @@ public class FutureTest {
         }
     }
 
-    //==========================使用普通的 Thread方法=================================
+    //===========================================================
+    public void testFutrueTask02(){
+        Executors.newCachedThreadPool();
+        Executors.newFixedThreadPool(1);
+        Executors.newScheduledThreadPool(1);
+        Executors.newSingleThreadExecutor();
+        Executors.newWorkStealingPool();
+    }
 }
