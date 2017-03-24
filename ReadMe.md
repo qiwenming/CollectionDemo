@@ -291,3 +291,61 @@ public ThreadPoolExecutor(int corePoolSize,
 |keepAliveTime|存活时间 |
 |unit| 时间单位|
 |...|...|
+
+#### 5.2 Executors
+##### 5.2.1 newCachedThreadPool()
+```
+    public static ExecutorService newCachedThreadPool() {
+        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                      60L, TimeUnit.SECONDS,
+                                      new SynchronousQueue<Runnable>());
+    }
+```
+
+##### 5.2.2 newSingleThreadPool()
+```
+    public static ExecutorService newSingleThreadExecutor() {
+        return new FinalizableDelegatedExecutorService
+            (new ThreadPoolExecutor(1, 1,
+                                    0L, TimeUnit.MILLISECONDS,
+                                    new LinkedBlockingQueue<Runnable>()));
+    }
+```
+
+#####  5.2.3 newFixedThreadPool()
+```
+    public static ExecutorService newFixedThreadPool(int nThreads) {
+        return new ThreadPoolExecutor(nThreads, nThreads,
+                                      0L, TimeUnit.MILLISECONDS,
+                                      new LinkedBlockingQueue<Runnable>());
+    }
+```
+
+#####  5.2.4 newScheduledThreadPool()
+```
+    public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
+        return new ScheduledThreadPoolExecutor(corePoolSize);
+    }
+```
+
+```
+    public ScheduledThreadPoolExecutor(int corePoolSize) {
+        super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
+              new DelayedWorkQueue());
+    }
+```
+
+##### 5.2.5 几种队列的说明
+[java自带线程池和队列详细讲解](http://blog.csdn.net/sd0902/article/details/8395677)
+
+[Java并发包中的同步队列SynchronousQueue实现原理](http://ifeve.com/java-synchronousqueue/)
+
+|BlockingQueue| 说明 |
+|----|----|
+|SynchronousQueue|  |
+|ArrayBlockingQueue|  |
+|LinkedBlockingQueue|  |
+|DelayedWorkQueue|  |
+
+
+

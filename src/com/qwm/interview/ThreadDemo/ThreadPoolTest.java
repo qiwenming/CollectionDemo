@@ -13,24 +13,25 @@ public class ThreadPoolTest {
     private static ThreadPoolTest instance = new ThreadPoolTest();
 
     public static void main(String[] args){
-        instance.threadPoolExecutorTest();
+//        instance.threadPoolExecutorTest();
 //        instance.cacheThreadPoolTest();
 //        instance.singleThreadPoolTest();
 //        instance.fixedThreaddPoolTest();
 //        instance.scheduledThreadPoolTest();
+        instance.blockingQueueTest();
     }
 
     public void threadPoolExecutorTest(){
 //        cachedThreadPool 修改 60L 可以看缓存的效果
-        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(0, Integer.MAX_VALUE,60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(0, Integer.MAX_VALUE,60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
         // singleThreadPool
 //        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(1, 1,0L,TimeUnit.MILLISECONDS , new LinkedBlockingQueue<Runnable>());
         //fixedThreadPool
 //        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3,3,0L,TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>());
       //  threadPool.allowCoreThreadTimeOut(true);//允许核心线程超时，就是可以被回收
         //scheduledThreadPool
-//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,Integer.MAX_VALUE,0L,TimeUnit.MILLISECONDS,new LinkedBlockingQueue());
-//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(0,3,60L,TimeUnit.MILLISECONDS,new LinkedBlockingQueue());
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,Integer.MAX_VALUE,0L,TimeUnit.MILLISECONDS,new SynchronousQueue());
+//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3,3,60L,TimeUnit.MILLISECONDS,new LinkedBlockingQueue());
         addThreadTask(threadPool);
     }
 
@@ -59,9 +60,33 @@ public class ThreadPoolTest {
     //============================newScheduledThreadPool()==================================
     public void scheduledThreadPoolTest(){
         //corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS
-        ExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(3);
+        ExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(2);
         addThreadTask(scheduledThreadPool);
     }
+
+
+    //==============================================================================
+    //=============================BlockingQueueTest==================================
+    //==============================================================================
+    public void blockingQueueTest(){
+        //SynchronousQueue
+//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,Integer.MAX_VALUE,60L,TimeUnit.MILLISECONDS,new SynchronousQueue<Runnable>());
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,4,60L,TimeUnit.MILLISECONDS,new SynchronousQueue<Runnable>());
+        threadPool.submit(new PoolCallable());
+        threadPool.submit(new PoolCallable());
+        threadPool.submit(new PoolCallable());
+        threadPool.submit(new PoolCallable());
+        try {
+            Thread.sleep(2000);
+            threadPool.submit(new PoolCallable());
+            threadPool.submit(new PoolCallable());
+        }catch (Exception e){}
+    }
+
+
+
+
+
 
     public void addThreadTask(ExecutorService threadPool){
         threadPool.execute(new PoolRunnable());
@@ -70,12 +95,9 @@ public class ThreadPoolTest {
         threadPool.submit(new PoolRunnable());
         threadPool.submit(new PoolCallable());
         threadPool.submit(new PoolCallable());
-        try {
-            Thread.sleep(3000);
-            threadPool.submit(new PoolRunnable());
-            threadPool.submit(new PoolCallable());
-            threadPool.submit(new PoolCallable());
-        }catch (Exception e){}
+        threadPool.submit(new PoolRunnable());
+        threadPool.submit(new PoolCallable());
+        threadPool.submit(new PoolCallable());
     }
 
     //============================接口的实现==================================

@@ -15,7 +15,6 @@ import com.qwm.interview.net.tcp.SocketServer;
 public class MainJava {
 
     public static void main(String[] args){
-
         CollectionJava collectionJava  = new CollectionJava();
 //        collectionJava.test();
 //        collectionJava.testSet();
