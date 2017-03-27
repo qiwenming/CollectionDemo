@@ -3,6 +3,7 @@ package com.qwm.interview.ThreadDemo;
 
 import jdk.nashorn.internal.codegen.CompilerConstants;
 
+import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.*;
 
@@ -93,7 +94,8 @@ public class FutureTest {
 
     public static  void main(String[] args){
         FutureTest test = new FutureTest();
-        test.testFutrueTask01();
+//        test.testFutrueTask01();
+        test.testFutrueTask02();
     }
 
     //==========================使用普通的 Thread方法=================================
@@ -113,7 +115,33 @@ public class FutureTest {
         }
     }
 
+    //===========================线程池================================
+    public void testFutrueTask02(){
+//        Executors.newCachedThreadPool();
+//        Executors.newFixedThreadPool(2);
+//        Executors.newScheduledThreadPool(3);
+//        Executors.newSingleThreadExecutor();
+        ExecutorService es = Executors.newScheduledThreadPool(3);//DelayedWorkQueue
+        FutureTask<String> futureTask = new FutureTask<String>(new MyCallable2("my_test1"));
+        es.submit(futureTask);
+        es.shutdown();
+        try {
+            System.out.println(futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
     class MyCallable implements Callable<Integer>{
+
+        private String mTag;
+
+        public MyCallable(){}
+
+        public MyCallable(String tag){this.mTag = tag;}
+
         @Override
         public Integer call() throws Exception {
             int sum = 0;
@@ -125,12 +153,17 @@ public class FutureTest {
         }
     }
 
-    //===========================================================
-    public void testFutrueTask02(){
-        Executors.newCachedThreadPool();
-        Executors.newFixedThreadPool(1);
-        Executors.newScheduledThreadPool(1);
-        Executors.newSingleThreadExecutor();
-        Executors.newWorkStealingPool();
+    class MyCallable2 implements Callable<String> {
+
+        private String mTag;
+
+        public MyCallable2(String tag) {
+            this.mTag = tag;
+        }
+
+        @Override
+        public String call() throws Exception {
+            return mTag+"___"+System.currentTimeMillis();
+        }
     }
 }
