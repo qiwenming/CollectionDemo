@@ -243,7 +243,14 @@ public class FutureTask<V> implements RunnableFuture<V> {
 ```
 
 ### 5. 线程池
+
+[Java线程池架构(一)原理和源码解析](https://segmentfault.com/a/1190000000394999)
+
 [深入分析java线程池的实现原理](http://www.jianshu.com/p/87bff5cc8d8c)
+
+[浅谈Java并发编程系列](https://segmentfault.com/u/codershamo)
+
+
 #### 5.1 ThreadPoolExecutor
 ```
 public ThreadPoolExecutor(int corePoolSize,
@@ -340,12 +347,19 @@ public ThreadPoolExecutor(int corePoolSize,
 
 [Java并发包中的同步队列SynchronousQueue实现原理](http://ifeve.com/java-synchronousqueue/)
 
+[使用delayedQueue实现你本地的延迟队列](http://www.jianshu.com/p/87fd5b9f5ffb)
+
+[深度解析Java8 – ScheduledThreadPoolExecutor源码解析](http://ju.outofmemory.cn/entry/99456)
+
+[Java线程池架构(二)多线程调度器](https://segmentfault.com/a/1190000000395007)
+
+
 |BlockingQueue| 说明 |
 |----|----|
-|SynchronousQueue|  |
-|ArrayBlockingQueue|  |
-|LinkedBlockingQueue|  |
-|DelayedWorkQueue|  |
+|SynchronousQueue| 将任务直接提交给线程而不保存 |
+|ArrayBlockingQueue| 有边界 |
+|LinkedBlockingQueue| 无边界 |
+|DelayedWorkQueue|无界的队列，其中的对象只能在其到期时才能从队列中取走。这种队列是有序的，即队头对象的延迟到期时间最长。注意：不能将null元素放置到这种队列中。 |
 
 
 
